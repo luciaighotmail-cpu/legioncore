@@ -1,7 +1,6 @@
 #pragma once
 
 #include <array>
-Introductory
 #include <cstdint>
 #include <string>
 #include <string_view>
@@ -11,7 +10,7 @@ namespace legioncore {
 // Fixed-size digests (BLAKE3-256 = 32 bytes)
 using Digest32 = std::array<uint8_t, 32>;
 
-// Opaque identifiers (hex or raw bytes in real builds)
+// Opaque identifiers
 using CommandID     = std::string;
 using IntentID      = std::string;
 using AuthorityID   = std::string;
