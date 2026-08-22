@@ -1,0 +1,15 @@
+add_executable(command_contract_test command_contract_test.cpp)
+target_link_libraries(command_contract_test PRIVATE legioncore)
+add_test(NAME command_contract_test COMMAND command_contract_test)
+
+add_executable(state_machine_test state_machine_test.cpp)
+target_link_libraries(state_machine_test PRIVATE legioncore)
+add_test(NAME state_machine_test COMMAND state_machine_test)
+
+add_executable(authority_test authority_test.cpp)
+target_link_libraries(authority_test PRIVATE legioncore)
+add_test(NAME authority_test COMMAND authority_test)
+
+add_executable(replay_test replay_test.cpp)
+target_link_libraries(replay_test PRIVATE legioncore)
+add_test(NAME replay_test COMMAND replay_test)
