@@ -6,6 +6,19 @@
 
 namespace legioncore {
 
+// Project-owned hash functor. Do not specialize std::hash for std::array.
+// FNV-1a over the 32 bytes of the Nonce.
+struct NonceHash {
+  std::size_t operator()(const Nonce& n) const noexcept {
+    std::size_t h = 14695981039346656037ull;
+    for (uint8_t b : n) {
+      h ^= b;
+      h *= 1099511628211ull;
+    }
+    return h;
+  }
+};
+
 // Simple in-memory nonce store. Production will use durable, partitioned storage.
 // Fail-closed: unknown / already-seen nonce → reject.
 class NonceStore {
@@ -18,28 +31,7 @@ public:
 
 private:
   mutable std::mutex mu_;
-  std::unordered_set<Nonce> seen_;  // requires hash specialization
-};
-
-// Hash for Nonce so it can live in unordered_set
-struct NonceHash {
-  std::size_t operator()(const Nonce& n) const noexcept;
+  std::unordered_set<Nonce, NonceHash> seen_;
 };
 
 } // namespace legioncore
-
-// Specialization must be visible to unordered_set
-namespace std {
-template <>
-struct hash<legioncore::Nonce> {
-  std::size_t operator()(const legioncore::Nonce& n) const noexcept {
-    // Simple FNV-1a over the 32 bytes
-    std::size_t h = 14695981039346656037ull;
-    for (uint8_t b : n) {
-      h ^= b;
-      h *= 1099511628211ull;
-    }
-    return h;
-  }
-};
-} // namespace std

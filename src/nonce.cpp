@@ -13,8 +13,4 @@ bool NonceStore::has_seen(const Nonce& nonce) const {
   return seen_.count(nonce) > 0;
 }
 
-std::size_t NonceHash::operator()(const Nonce& n) const noexcept {
-  return std::hash<Nonce>{}(n);
-}
-
 } // namespace legioncore
