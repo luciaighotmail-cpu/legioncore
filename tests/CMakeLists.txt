@@ -13,3 +13,7 @@ add_test(NAME authority_test COMMAND authority_test)
 add_executable(replay_test replay_test.cpp)
 target_link_libraries(replay_test PRIVATE legioncore)
 add_test(NAME replay_test COMMAND replay_test)
+
+add_executable(blake3_test blake3_test.cpp)
+target_link_libraries(blake3_test PRIVATE legioncore)
+add_test(NAME blake3_test COMMAND blake3_test)
