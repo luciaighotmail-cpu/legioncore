@@ -1,0 +1,14 @@
+{
+  "schema": "sealie-merkle-leaf-v1",
+  "evidence_id": "L03-EVIDENCE-20261011T073749Z",
+  "gate": "L-03",
+  "claim": "SUPPORTED",
+  "content_digest_sha256": "ce7cfc0931b5d6ac228755a502421ca8519e2b061c61827da55eed698a8e36c1",
+  "evidence_commit": "c0ff444c8ca5176fb046c5290d302b5a4121cf64",
+  "source_commit": "87eb9f1fde3e46a881708434b975cf2519911eff",
+  "leaf_hash_sha256": "7204487f301fb128d96f07c9c921ac94d352c3859917346d5906a6290cdd0a23",
+  "domain_separator": "SEALIE-EVIDENCE-LEAF-v1",
+  "construction": "SHA-256(domain || evidence_id || 0x00 || content_digest || 0x00 || evidence_commit)",
+  "timestamp_utc": "2026-10-11T07:44:38Z",
+  "note": "Single leaf. Full Merkle tree / inclusion proof / independent attestation not yet present. This is a strengthening artefact only."
+}
