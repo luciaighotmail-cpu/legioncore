@@ -4,12 +4,24 @@ This directory is reserved for **machine-generated** evidence records produced b
 
 Manual narrative files do not constitute evidence.
 
-Expected future artefacts:
+## Current artefacts
 
-- `L03-AUTH-001.json` (and successors)
-- digests
+| Evidence ID | Gate | Claim | Timestamp (UTC) |
+|-------------|------|-------|-----------------|
+| L03-EVIDENCE-20261011T073749Z | L-03 | SUPPORTED (internal unit-level) | 2026-10-11T07:37:49Z |
+
+Location: `evidence/generated/`
+
+- `L03-EVIDENCE-20261011T073749Z.json`
+- `L03-EVIDENCE-20261011T073749Z.sha256`
+- `L03-SUMMARY-20261011.md`
+
+**Status machine note:** The claim is SUPPORTED by reproducible unit tests. It is **not** PROVEN. No independent certification, Merkle tree, or external attestation is present.
+
+Expected future artefacts for higher assurance:
+
 - Merkle leaves / roots
-- build identities
-- commit SHAs
+- CI-attested build identities
+- Independent verification records
 
-Until those records are emitted by the harness itself, L-03 remains **NOT PASSED**.
+Until those exist, L-03 remains at SUPPORTED (internal unit-level) only.
