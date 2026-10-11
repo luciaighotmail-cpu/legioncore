@@ -23,7 +23,8 @@ Distributed computational substrate for the Sealie Federation.
 | L-02 Nonce / freshness | **IMPLEMENTED** |
 | L-02 Interlock | **IMPLEMENTED** (default BLOCKED) |
 | L-03 test harness | **PRESENT** (command, state, authority, replay) |
-| L-03 Empirical evidence | **SUPPORTED** — internal unit-level (see below) |
+| L-03 Empirical evidence | **SUPPORTED** — internal unit-level |
+| L-06 Merkle evidence | **SUPPORTED** — tree + inclusion proofs over current artefacts |
 
 ### L-03 Evidence (SUPPORTED — not PROVEN)
 
@@ -33,13 +34,23 @@ Distributed computational substrate for the Sealie Federation.
 | Content digest (SHA-256) | `ce7cfc0931b5d6ac228755a502421ca8519e2b061c61827da55eed698a8e36c1` |
 | Evidence commit | `c0ff444c8ca5176fb046c5290d302b5a4121cf64` |
 | Source commit | `87eb9f1fde3e46a881708434b975cf2519911eff` |
-| Merkle leaf hash | `7204487f301fb128d96f07c9c921ac94d352c3859917346d5906a6290cdd0a23` |
 | Claim | SUPPORTED (internal unit-level only) |
 
-Location: [`evidence/generated/`](evidence/generated/)  
-Independent verification performed 2026-10-11: clean build + 4/4 tests PASS, digest match.
+### L-06 Merkle Tree (SUPPORTED — not PROVEN)
 
-**Status machine note:** This is not PROVEN. No independent certification, full Merkle tree, or CI-signed provenance is present yet.
+| Field | Value |
+|-------|-------|
+| Tree ID | `L06-MERKLE-TREE-20261011` |
+| Root (SHA-256) | `88f7474c419c03fd63dbf9b9fdd64a3db549c45d9cf0730e140082ff0397c022` |
+| Leaves | 4 (L-03 package artefacts) |
+| Depth | 2 |
+| Inclusion proofs | All verified at construction |
+| Claim | SUPPORTED (tree + proofs exist) |
+
+Location: [`evidence/generated/`](evidence/generated/)  
+Independent verification of L-03 performed 2026-10-11. Merkle tree constructed and proofs verified the same day.
+
+**Status machine note:** Neither claim is PROVEN. No independent certification or CI-signed provenance is present yet.
 
 ## Build
 

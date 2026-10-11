@@ -1,0 +1,104 @@
+{
+  "schema": "sealie-merkle-tree-v1",
+  "gate": "L-06",
+  "claim": "SUPPORTED",
+  "claim_detail": "Full binary Merkle tree over the current L-03 evidence artefacts with domain separation. Inclusion proofs verified. This does not constitute independent attestation or PROVEN status for L-06.",
+  "timestamp_utc": "2026-10-11T07:47:18Z",
+  "domain_separators": {
+    "leaf": "SEALIE-MERKLE-LEAF-v1",
+    "node": "SEALIE-MERKLE-NODE-v1"
+  },
+  "hash_algorithm": "SHA-256",
+  "leaf_construction": "SHA-256(DOMAIN_LEAF || label || 0x00 || content_digest)",
+  "node_construction": "SHA-256(DOMAIN_NODE || left || right)",
+  "odd_leaf_policy": "hash with domain-separated empty leaf (__EMPTY__ with 32 zero bytes)",
+  "root_sha256": "88f7474c419c03fd63dbf9b9fdd64a3db549c45d9cf0730e140082ff0397c022",
+  "leaf_count": 4,
+  "depth": 2,
+  "leaves": [
+    {
+      "label": "evidence/generated/L03-EVIDENCE-20261011T073749Z.json",
+      "content_digest_sha256": "ce7cfc0931b5d6ac228755a502421ca8519e2b061c61827da55eed698a8e36c1",
+      "leaf_hash_sha256": "975d04af796e33fc7ed262275c5de34018e9c6eef2d0f9fa5d6330c10c47a5de"
+    },
+    {
+      "label": "evidence/generated/L03-EVIDENCE-20261011T073749Z.sha256",
+      "content_digest_sha256": "d4a820e795ef8b1e6fcd45faa01f96bb7e1da0a143b7f596ac02c103e6ef63f0",
+      "leaf_hash_sha256": "122e7a9d7fab6f9070001a455f417f3632ca04c689dc88aa757b9e8c8dd3cf03"
+    },
+    {
+      "label": "evidence/generated/L03-MERKLE-LEAF-20261011.json",
+      "content_digest_sha256": "eefa396fb707be2b16de9dd8f0aef54a1727b2ae35ce96de6dbba185b49e069a",
+      "leaf_hash_sha256": "6b1719b7724a00f41e21d1059a0d0b1af0d0c7e27bd09ededfd90cffd38d99e6"
+    },
+    {
+      "label": "evidence/generated/L03-SUMMARY-20261011.md",
+      "content_digest_sha256": "9e614c92b6c738d12ece8af90a87659d15fa06c85ded5af3deea021936680c15",
+      "leaf_hash_sha256": "7d7a44ebc6bd6397cdfee473bf57adfa28d464f33abd715efa45a9381400f24c"
+    }
+  ],
+  "inclusion_proofs": [
+    {
+      "label": "evidence/generated/L03-EVIDENCE-20261011T073749Z.json",
+      "leaf_hash_sha256": "975d04af796e33fc7ed262275c5de34018e9c6eef2d0f9fa5d6330c10c47a5de",
+      "proof": [
+        {
+          "sibling_hash_sha256": "122e7a9d7fab6f9070001a455f417f3632ca04c689dc88aa757b9e8c8dd3cf03",
+          "position": "right"
+        },
+        {
+          "sibling_hash_sha256": "6d419edee1bfc7a960357c958514018fe7f0f5d121f5942dd8763b44b6be8042",
+          "position": "right"
+        }
+      ]
+    },
+    {
+      "label": "evidence/generated/L03-EVIDENCE-20261011T073749Z.sha256",
+      "leaf_hash_sha256": "122e7a9d7fab6f9070001a455f417f3632ca04c689dc88aa757b9e8c8dd3cf03",
+      "proof": [
+        {
+          "sibling_hash_sha256": "975d04af796e33fc7ed262275c5de34018e9c6eef2d0f9fa5d6330c10c47a5de",
+          "position": "left"
+        },
+        {
+          "sibling_hash_sha256": "6d419edee1bfc7a960357c958514018fe7f0f5d121f5942dd8763b44b6be8042",
+          "position": "right"
+        }
+      ]
+    },
+    {
+      "label": "evidence/generated/L03-MERKLE-LEAF-20261011.json",
+      "leaf_hash_sha256": "6b1719b7724a00f41e21d1059a0d0b1af0d0c7e27bd09ededfd90cffd38d99e6",
+      "proof": [
+        {
+          "sibling_hash_sha256": "7d7a44ebc6bd6397cdfee473bf57adfa28d464f33abd715efa45a9381400f24c",
+          "position": "right"
+        },
+        {
+          "sibling_hash_sha256": "8c35e593e238086055dbc837eeca4ff04322c609cbb9645746f1b99507a5cd88",
+          "position": "left"
+        }
+      ]
+    },
+    {
+      "label": "evidence/generated/L03-SUMMARY-20261011.md",
+      "leaf_hash_sha256": "7d7a44ebc6bd6397cdfee473bf57adfa28d464f33abd715efa45a9381400f24c",
+      "proof": [
+        {
+          "sibling_hash_sha256": "6b1719b7724a00f41e21d1059a0d0b1af0d0c7e27bd09ededfd90cffd38d99e6",
+          "position": "left"
+        },
+        {
+          "sibling_hash_sha256": "8c35e593e238086055dbc837eeca4ff04322c609cbb9645746f1b99507a5cd88",
+          "position": "left"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "all_proofs_valid": true,
+    "verified_at_utc": "2026-10-11T07:47:18Z"
+  },
+  "source_evidence_commit": "d2768f61d822e8ed2e130a506b636400b9b199b0",
+  "note": "Tree covers the four artefacts present in evidence/generated/ at the time of construction. Future artefacts require a new tree version."
+}
